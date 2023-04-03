@@ -1,6 +1,7 @@
 package PageObjectsPackage;
 
 import BasePackage.BaseMethods;
+import org.apache.hc.core5.util.Asserts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,9 +12,14 @@ public class GooglePage extends BaseMethods {
     }
    // By btnSearch = By.cssSelector("input[type=submit]");
     By searchBar  = By.name("q");
+    By focusServices = By.xpath("//h3[contains(text(),'Focus Services – Beyond Expectations')]");
     public void TestCase_1(){
         WriteText("Focus Services", searchBar);
         SubmitForm(searchBar);
+
+        if (IsVisible(focusServices)){
+            System.out.println("Web page is visible");
+        }
 
     }
 }

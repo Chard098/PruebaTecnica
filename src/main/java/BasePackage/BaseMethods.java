@@ -17,8 +17,9 @@ public class BaseMethods {
        pDriver.findElement(pLocator).submit();
     }
 
-    public void StringToPrint(String stringToPrint){
-        System.out.println(stringToPrint);
+
+    public boolean IsVisible(By pLocator) {
+        return pDriver.findElement(pLocator).isDisplayed();
     }
 
     public String GetAttribute(By pLocator, String pAttribute){
@@ -41,21 +42,6 @@ public class BaseMethods {
         pDriver.findElement(pLocator).click();
     }
 
-    public boolean IsVisible(By pLocator) {
-        return pDriver.findElement(pLocator).isDisplayed();
-    }
-
-
-    public void SelectByWebElement(By pLocator){
-        WebElement pSelectOption = pDriver.findElement(pLocator);
-        List<WebElement> pListOptions = pSelectOption.findElements(By.tagName("option"));
-        for (WebElement option : pListOptions) {
-            if ("Option3".equals(option.getText())) {
-                option.click();
-                System.out.println("This option is selected using object java WebElement: " + option.getText());
-            }
-        }
-    }
 
     public void SwitchToTab(int pTab){
         ArrayList<String> pTabs = new ArrayList<>(pDriver.getWindowHandles());
@@ -86,15 +72,6 @@ public class BaseMethods {
         for (int i = 0; i <4 ; i++) {
             js.executeScript("window.open()");
         }
-    }
-    //----------------------------------------------------------
-    public String GetTabTitle(){
-        return pDriver.getTitle();
-    }
-
-    public int TabHandle(){
-        ArrayList<String> pTabs = new ArrayList<String>(pDriver.getWindowHandles());
-        return pTabs.size();
     }
 
     public void ClickByJavaScript(By pLocator){
