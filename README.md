@@ -1,21 +1,25 @@
 # Prueba Tecnica
-This project uses WebDriverManager so you dont need to add the webdriver executor path.
+Dependencies:
+Java 11 & Maven
+---
+## To Run UI/E2E Test Execution as Maven project from IDE
+1. Create Run configuration:
 
-## Installation / Run test suite
+    a) Select Maven template;
 
-First, make sure to have Maven already installed in your machine, if you don't have Maven you can get it here:
+    b) put under Working Directory path to : pruebaTecnica;
+    
+    c) put under Command line:  "`mvn clean test -Dbrowser=chrome`";
+
+
+2. Select save configuration and click `Run` button 
+---
+
+## To Run UI/E2E Test Execution from Terminal
 ```
-https://maven.apache.org/download.cgi
-```
-There are two ways to execute this project,
-
-With a configuration run file or executing the command terminal
-
-
-```bash
 mvn clean test -Dbrowser=chrome
 ```
-
+---
 ## Structure
 ```
 Test files are in src/test/java/, 
