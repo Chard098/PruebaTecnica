@@ -13,13 +13,15 @@ public class GooglePage extends BaseMethods {
    // By btnSearch = By.cssSelector("input[type=submit]");
     By searchBar  = By.name("q");
     By focusServices = By.xpath("//h3[contains(text(),'Focus Services – Beyond Expectations')]");
-    public void TestCase_1(){
+    public void MakeGoogleSearch(){
         WriteText("Focus Services", searchBar);
         SubmitForm(searchBar);
 
         if (IsVisible(focusServices)){
             System.out.println("Web page is visible");
+            ClickElement(focusServices);
+        }else{
+            System.out.println("The web element does not exists");
         }
-
     }
 }

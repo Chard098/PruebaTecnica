@@ -18,10 +18,10 @@ public class uiTests {
     public void PositiveScenario(){
         pWebDriver.get("https://www.google.com/");
         GooglePage pGooglePage = new GooglePage(pWebDriver);
-        pGooglePage.TestCase_1();
+        pGooglePage.MakeGoogleSearch();
     }
     @AfterTest
     public void TearDown(){
-        //pDriver.quit();
+        pWebDriver.quit();
     }
 }
