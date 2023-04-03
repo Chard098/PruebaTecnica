@@ -1,12 +1,14 @@
-package PageObjectsPackage;
+package pageObjectPackage;
 
-import BasePackage.BaseMethods;
-import org.apache.hc.core5.util.Asserts;
+import basePackage.BaseMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Properties;
+
 // page_url = https://www.google.com/
 public class GooglePage extends BaseMethods {
+    Properties prop = new Properties();
     public GooglePage(WebDriver driver) {
         super(driver);
     }
@@ -14,14 +16,18 @@ public class GooglePage extends BaseMethods {
     By searchBar  = By.name("q");
     By focusServices = By.xpath("//h3[contains(text(),'Focus Services – Beyond Expectations')]");
     public void MakeGoogleSearch(){
-        WriteText("Focus Services", searchBar);
-        SubmitForm(searchBar);
+        writeText("Focus Services", searchBar);
+        submitForm(searchBar);
 
-        if (IsVisible(focusServices)){
+        if (isVisible(focusServices)){
             System.out.println("Web page is visible");
-            ClickElement(focusServices);
+            clickElement(focusServices);
         }else{
             System.out.println("The web element does not exists");
         }
+
+        prop.setProperty("urlFocusServices", getUrl());
+
+        System.out.println(prop.getProperty("urlFocusServices"));
     }
 }

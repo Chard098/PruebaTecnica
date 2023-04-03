@@ -1,10 +1,9 @@
-package BasePackage;
+package basePackage;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BaseMethods {
     public WebDriver pDriver;
@@ -13,20 +12,35 @@ public class BaseMethods {
         this.pDriver = driver;
     }
 
-    public void SubmitForm(By pLocator){
+    public void submitForm(By pLocator){
        pDriver.findElement(pLocator).submit();
     }
 
 
-    public boolean IsVisible(By pLocator) {
+    public boolean isVisible(By pLocator) {
         return pDriver.findElement(pLocator).isDisplayed();
     }
 
-    public String GetAttribute(By pLocator, String pAttribute){
+    public void ScrollDown(){
+        JavascriptExecutor js = (JavascriptExecutor) pDriver;
+        js.executeScript("window.scrollBy(0,6000)");
+    }
+
+    public void writeText(String inputText, By pLocator){
+        pDriver.findElement(pLocator).sendKeys(inputText);
+    }
+    public void clickElement(By pLocator){
+        pDriver.findElement(pLocator).click();
+    }
+
+    public String getUrl(){
+        return pDriver.getCurrentUrl();
+    }
+    public String getAttribute(By pLocator, String pAttribute){
         return pDriver.findElement(pLocator).getAttribute(pAttribute);
     }
 
-    public String GetTextByAttribute(By pLocator, String pAttribute){
+    public String getTextByAttribute(By pLocator, String pAttribute){
         return pDriver.findElement(pLocator).getAttribute(pAttribute);
     }
 
@@ -34,13 +48,8 @@ public class BaseMethods {
         return pDriver.findElement(pLocator).getText();
     }
 
-    public void WriteText(String inputText, By pLocator){
-        pDriver.findElement(pLocator).sendKeys(inputText);
-    }
 
-    public void ClickElement(By pLocator){
-        pDriver.findElement(pLocator).click();
-    }
+
 
 
     public void SwitchToTab(int pTab){
@@ -48,10 +57,6 @@ public class BaseMethods {
         pDriver.switchTo().window(pTabs.get(pTab));
     }
 
-    public void ScrollDown(){
-        JavascriptExecutor js = (JavascriptExecutor) pDriver;
-        js.executeScript("window.scrollBy(0,1000)");
-    }
 
     public void MoveToElement(By pLocator){
         Actions pActions = new Actions(pDriver);
@@ -59,9 +64,6 @@ public class BaseMethods {
         pActions.moveToElement(vLocator).perform();
     }
 
-    public String GetUrl(){
-        return pDriver.getCurrentUrl();
-    }
 
     public void SendActionsKeysEnter(By pLocator){
         pDriver.findElement(pLocator).sendKeys(Keys.ENTER);

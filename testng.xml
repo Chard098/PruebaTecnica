@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Repos/PruebaTecnica">
         <classes>
-            <class name="uiTests"> </class>
+            <class name="FrontEndTests"> </class>
         </classes>
     </test>
 </suite>

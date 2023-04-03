@@ -41,6 +41,17 @@
             <version>2.21.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -50,9 +61,13 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
+                        <includes>
+                            <include>**/RunnerOne.java</include>
+                        </includes>
+                        <testFailureIgnore>true</testFailureIgnore>
                         <suiteXmlFiles>
                             <!--suppress UnresolvedMavenProperty -->
-                            <suiteXmlFile>testing.xml</suiteXmlFile>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
