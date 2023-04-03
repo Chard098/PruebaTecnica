@@ -12,9 +12,8 @@ public class GooglePage extends BaseMethods {
     public GooglePage(WebDriver driver) {
         super(driver);
     }
-   // By btnSearch = By.cssSelector("input[type=submit]");
     By searchBar  = By.name("q");
-    By focusServices = By.xpath("//h3[contains(text(),'Focus Services – Beyond Expectations')]");
+    By focusServices = By.partialLinkText("Focus Services – Beyond Expectations");
 
     public void MakeGoogleSearch(){
         writeText("Focus Services", searchBar);

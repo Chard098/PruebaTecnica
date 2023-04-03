@@ -1,4 +1,5 @@
 import dataProvider.ConfigFileReader;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObjectPackage.FocusServicesPage;
 import pageObjectPackage.GooglePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -16,10 +17,17 @@ public class FrontEndTests {
     ConfigFileReader configFileReader;
     @BeforeTest
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        pWebDriver = new ChromeDriver();
-        pWebDriver.manage().window().maximize();
+
+        String browser = System.getProperty("browser", "chrome");
         configFileReader = new ConfigFileReader();
+
+        if (browser.contains("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            pWebDriver = new ChromeDriver();
+            pWebDriver.manage().window().maximize();
+        } else{
+            System.out.println("You must specify a browsers");
+        }
 
     }
     @Test (priority = 1)
