@@ -38,6 +38,6 @@ public class FrontEndTests {
     }
     @AfterTest
     public void tearDown(){
-       // pWebDriver.quit();
+       pWebDriver.quit();
     }
 }

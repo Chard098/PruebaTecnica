@@ -15,6 +15,7 @@ public class GooglePage extends BaseMethods {
    // By btnSearch = By.cssSelector("input[type=submit]");
     By searchBar  = By.name("q");
     By focusServices = By.xpath("//h3[contains(text(),'Focus Services – Beyond Expectations')]");
+
     public void MakeGoogleSearch(){
         writeText("Focus Services", searchBar);
         submitForm(searchBar);
@@ -26,8 +27,5 @@ public class GooglePage extends BaseMethods {
             System.out.println("The web element does not exists");
         }
 
-        prop.setProperty("urlFocusServices", getUrl());
-
-        System.out.println(prop.getProperty("urlFocusServices"));
     }
 }

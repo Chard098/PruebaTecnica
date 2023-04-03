@@ -26,6 +26,10 @@ public class BaseMethods {
         js.executeScript("window.scrollBy(0,6000)");
     }
 
+    public void containsText(){
+
+    }
+
     public void writeText(String inputText, By pLocator){
         pDriver.findElement(pLocator).sendKeys(inputText);
     }
