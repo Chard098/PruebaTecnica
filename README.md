@@ -1,9 +1,16 @@
 # Prueba Tecnica
 This project uses WebDriverManager so you dont need to add the webdriver executor path.
 
-## Installation / Run test
+## Installation / Run test suite
 
-In order to execute the test, you need to use this command:
+First, make sure to have Maven already installed in your machine, if you don't have Maven you can get it here:
+```
+https://maven.apache.org/download.cgi
+```
+There are two ways to execute this project,
+
+With a configuration run file or executing the command terminal
+
 
 ```bash
 mvn clean test -Dbrowser=chrome
